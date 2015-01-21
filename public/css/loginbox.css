@@ -1,0 +1,12 @@
+.loginBox {
+    display: inline-block;
+    height: 100px;
+    vertical-align: middle;
+    margin: auto;
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    
+}

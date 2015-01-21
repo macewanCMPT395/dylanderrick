@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
+Route::get('/', function(){
+    return View::make('home');   
+});
 
 
 Route::get('login', 'SessionsController@create');
