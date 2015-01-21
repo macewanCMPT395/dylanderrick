@@ -2,4 +2,26 @@ Lab 1 Assignment for CMPT 395
 
 A simple CRUD application using Laravel.
 
-Further details to be added!
+
+To run in virtual machine:
+	php artisan serve --host 0.0.0.0
+
+
+To Do:
+	-user registration page:
+		-add email form
+		-make pretty
+
+	-home page:
+	 	-product/service description
+		-login form in top right
+		-link to registration page
+		-make sure there is a logout button when logged in
+		-make pretty
+
+	-user settings page:
+		-update username
+		-change password
+		-maybe other stuff
+		-make pretty
+
