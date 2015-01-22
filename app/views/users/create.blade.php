@@ -20,6 +20,11 @@
 		{{ $errors->first('password') }}
 	   </div>
 
+	   <div>
+		{{ Form::label('email', 'Email: ') }}
+		{{ Form::email('email') }}
+		{{ $errors->first('email') }}
+	   </div>
 
 	   <div> {{ Form::submit('Create User') }}</div>
 
