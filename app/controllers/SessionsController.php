@@ -13,7 +13,7 @@ class SessionsController extends BaseController {
 
       public function store() {
 
-      	     if (Auth::attempt(Input::only('email', 'password'))) {
+      	 if (Auth::attempt(Input::only('email', 'password'))) {
 	     	return "Welcome " . Auth::user()->username;	
 
 	     }

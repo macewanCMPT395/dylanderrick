@@ -1,29 +1,46 @@
 @extends('layout/default')
 
+
+@section('header')
+    {{ HTML::script('js/register.js') }}
+
 @section('content')
 
 	<h1>Create New User</h2>
 
 
 
-	{{ Form::open([ 'route' => 'users.store']) }}
+	{{ Form::open(array( 'route' => 'users.store',
+                    'id' => 'form-register'
+        )) 
+    }}
 
 	   <div>
 		{{ Form::label('username', 'Username: ') }}
-	   	{{ Form::text('username') }}
-		{{ $errors->first('username', '<span class=error>:message</span>') }}
+	   	{{ Form::text('username', '', array(
+            'id' => 'username'
+           )) }}
+		<!--{{ $errors->first('username', '<span class=error>:message</span>') }}-->
+            <div id="usernameErrMsg"></div>  
+           
 	   </div>
 
 	   <div>
 		{{ Form::label('password', 'Password: ') }}
-	   	{{ Form::password('password') }}
-		{{ $errors->first('password') }}
+	   	{{ Form::password('password', '', array(
+            'id' => 'password'
+           )) }}
+		<!--{{ $errors->first('password') }}-->
+           <div id="passwordErrMsg"></div>  
 	   </div>
 
 	   <div>
 		{{ Form::label('email', 'Email: ') }}
-		{{ Form::email('email') }}
-		{{ $errors->first('email') }}
+		{{ Form::email('email', '', array(
+            'id' => 'email'
+           )) }}
+		<!--{{ $errors->first('email') }}-->
+        <div id="emailErrMsg"></div> 
 	   </div>
 
 	   <div> {{ Form::submit('Create User') }}</div>

@@ -12,11 +12,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	use UserTrait, RemindableTrait;
 
 	public static $rules = [
-	       'username' => 'required',
-	       'email' 	  => 'required',
-	       'password' => 'required'
-
-
+        'username' => 'required',
+        'password' => 'required',
+        'email' 	  => 'required'
 	];
 
 	public $messages;
@@ -36,10 +34,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 
 	public function isValid() {
-
-	       $validation = Validator::make($this->attributes, static::$rules);
-	
-		if($validation->passes()) return true;
+        $validation = Validator::make($this->attributes, static::$rules);
+        if($validation->passes()) return true;
 
 		$this->messages = $validation->messages();
 		return false;
