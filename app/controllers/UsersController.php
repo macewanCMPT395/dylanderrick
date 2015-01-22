@@ -43,7 +43,7 @@ class UsersController extends \BaseController {
 	     }
 
 	     /*encrypt user password*/
-	     $this->user->password = Hash::make($this->user->password);
+	     //$this->user->password = Hash::make($this->user->password);
 	     $this->user->save();
 
           #Redirect::route('users.index');

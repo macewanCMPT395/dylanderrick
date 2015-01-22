@@ -3,22 +3,25 @@
 @section('header')
 
     {{ HTML::style('css/loginbox.css'); }}
+    {{ HTML::script('js/login.js') }}
 @stop
 
 
 @section('content')
-	{{ Form::open(['route' => 'sessions.store']) }}
+	{{ Form::open(['route' => 'sessions.store',
+                    'id' => 'form-login'
+    ]) }}
 
 
         <div class="loginBox">
-
-           <div class="loginAttr" id="email">
+            <div id="errorMsg"></div>
+           <div class="loginAttr" id="emailBox">
                {{ Form::label('email', 'Email:') }}
-               {{ Form::email('email') }}
+               {{ Form::email('email', '', ['id' => 'email']) }}
            </div>		   
-           <div class="loginAttr" id="password">
+           <div class="loginAttr" id="passwordBox">
                {{ Form::label('password', 'Password:') }}
-               {{ Form::password('password') }}
+               {{ Form::password('password', '', ['id' => 'password']) }}
            </div>	
 
 

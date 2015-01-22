@@ -12,19 +12,25 @@ class SessionsController extends BaseController {
       }
 
       public function store() {
-
+          
       	 if (Auth::attempt(Input::only('email', 'password'))) {
-	     	return "Welcome " . Auth::user()->username;	
-
+             $response = array(
+                 "status" => 0,
+                 "redirect" => "/users/".Auth::user()->username
+             );
+             
+             return Response::json($response);
 	     }
-	     return Redirect::back()->withInput();
-
+          
+          $response = array(
+                "status" => 1,
+                "error" => "Invalid Username or Password"
+          );
+	     return Response::json($response);
       }
 
       public function destroy () {
-      	     Auth::logout();
-
-
+      	 Auth::logout();
 	     return Redirect::route('sessions.create');
       }
 

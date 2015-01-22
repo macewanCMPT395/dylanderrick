@@ -33,6 +33,10 @@ body, html {
     position: relative;
 }
 
+.titleBlock #logoutButton {
+    display: none;   
+}
+
 .aboutTextBlock {
     background-color: #EEEEEE;   
     width: 100%;

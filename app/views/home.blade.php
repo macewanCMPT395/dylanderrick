@@ -5,6 +5,11 @@
 
     {{ HTML::script('js/lightbox.js') }}
     {{ HTML::style('css/lightbox.css'); }}
+
+
+    <script>
+        var isAuthed = "{{Auth::check()}}";
+    </script>
 @stop
 
 
@@ -14,6 +19,7 @@
         
         <div class="loginBlock">
             <a id="loginButton" href="/login">Login</a>
+            <a id="logoutButton" href="/logout">Logout</a>
             <a id="registerButton" href="/users/create">Regster</a>
         </div>
         
