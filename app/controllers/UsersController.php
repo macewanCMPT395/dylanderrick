@@ -27,8 +27,8 @@ class UsersController extends \BaseController {
 
 
       public function store () {
+          if(!Request::ajax()) return Redirect::route('/');
           
-
 	     $input = Input::all();
       	 if (!$this->user->fill($input)->isValid()) {
              

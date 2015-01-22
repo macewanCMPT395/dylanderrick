@@ -1,5 +1,21 @@
 var LightBox = {
     _lightBox: null,
+    _content: null,
+
+    _width: "600px",
+    _height: "600px",
+    
+    width: function(val) {
+        if(val == "undefined") return this._width;
+        this._width = val;
+        return this;
+    },
+
+    height: function(val) {
+        if(val == "undefined") return this._height;
+        this._height = val;
+        return this;
+    },
     
     //initialize light box and hide it in page
     init: function() {
@@ -8,16 +24,17 @@ var LightBox = {
             this._lightBox = document.createElement('div');
             $(this._lightBox).attr('id', 'lightBox').hide();
          
+            this._content = document.createElement('div');
+            $(this._content).attr('class', 'content');
+            $(this._content).appendTo(this._lightBox);
+    
             var that = this;
             //add check for click outside box to close it
             $(this._lightBox).mouseup(function(e) {
                 that.close(e);
             });
 
-
-                        
             $('body').append(this._lightBox);
-
             return this;
         }
     },
@@ -31,10 +48,10 @@ var LightBox = {
     },
     
     show: function(data) {
-        var content = document.createElement('div');
-        $(content).attr('class', 'content').html(data);     
-        $(content).appendTo(this._lightBox);
-        
-        $(this._lightBox).show();
+        if(this._content != null) { 
+            $(this._content).html(data)
+                .css('width', this._width).css('height', this._height);
+            $(this._lightBox).show();
+        }
     }   
 };
