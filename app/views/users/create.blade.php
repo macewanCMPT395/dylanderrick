@@ -6,9 +6,7 @@
 
 @section('content')
 
-	<h1>Create New User</h2>
-
-
+	<h1>Create New User!!!</h2>
 
 	{{ Form::open(array( 'route' => 'users.store',
                     'id' => 'form-register'
@@ -17,33 +15,30 @@
 
 	   <div>
 		{{ Form::label('username', 'Username: ') }}
-	   	{{ Form::text('username', '', array(
-            'id' => 'username'
-           )) }}
-		<!--{{ $errors->first('username', '<span class=error>:message</span>') }}-->
-            <div id="usernameErrMsg"></div>  
+	   	{{ Form::text('username') }}
+        <div id="usernameErrMsg"></div>  
            
 	   </div>
 
 	   <div>
-		{{ Form::label('password', 'Password: ') }}
-	   	{{ Form::password('password', '', array(
-            'id' => 'password'
-           )) }}
-		<!--{{ $errors->first('password') }}-->
-           <div id="passwordErrMsg"></div>  
+		{{ Form::label('pass1', 'Password: ') }}
+	   	{{ Form::password('pass1') }}
+        <div id="passwordErrMsg"></div>  
 	   </div>
 
 	   <div>
 		{{ Form::label('email', 'Email: ') }}
-		{{ Form::email('email', '', array(
-            'id' => 'email'
-           )) }}
-		<!--{{ $errors->first('email') }}-->
+		{{ Form::email('email') }}
         <div id="emailErrMsg"></div> 
 	   </div>
 
+	   <div>
+		{{ Form::label('pass2', 'Confirm Password: ') }}
+		{{ Form::password('pass2') }}
+	   </div>
+
 	   <div> {{ Form::submit('Create User') }}</div>
+
 
 	{{ Form::close() }}
 
