@@ -30,21 +30,31 @@ var LightBox = {
     
             var that = this;
             //add check for click outside box to close it
-            $(this._lightBox).mouseup(function(e) {
-                that.close(e);
+            $(this._lightBox).mousedown(function(e) {
+                that.clickOut(e, function(){
+                    that.close();
+                });
             });
-
+            
+            
+            $(this._lightBox).on('click', '#lightBoxCloseBtn',function(e) {
+                that.close();
+            });
+            
             $('body').append(this._lightBox);
             return this;
         }
     },
         
-    close: function(e) {
+    clickOut: function(e, cb) {
         var box = $(this._lightBox).find('.content');
-        if(!box.is(e.target) && box.has(e.target).length==0) {
-            $(box).empty();
-            $(this._lightBox).hide();
-        }     
+        if(!box.is(e.target) && box.has(e.target).length==0)
+            cb(box);
+    },
+    
+    close: function() {
+        $(this._lightBox).find('.content').empty();
+        $(this._lightBox).hide();
     },
     
     show: function(data) {

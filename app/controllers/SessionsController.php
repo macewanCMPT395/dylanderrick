@@ -31,7 +31,7 @@ class SessionsController extends BaseController {
 
       public function destroy () {
       	 Auth::logout();
-	     return Redirect::route('sessions.create');
+	     return Redirect::home();
       }
 
 

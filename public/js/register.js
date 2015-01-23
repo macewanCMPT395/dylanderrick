@@ -11,7 +11,6 @@ $(document).ready(function() {
             },
 
             function(resp) {
-                console.log(resp);
                 if(resp.status){
                     if(resp.errors.username)
                         $('#usernameErrMsg').text(resp.errors.username)

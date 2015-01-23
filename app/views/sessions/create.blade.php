@@ -12,22 +12,27 @@
                     'id' => 'form-login'
     ]) }}
 
+        <div class="loginTitle">
+            <p id="loginTitleText">Please Login:</p>
+        </div>
 
         <div class="loginBox">
-            <div id="errorMsg"></div>
+            
            <div class="loginAttr" id="emailBox">
-               {{ Form::label('email', 'Email:') }}
+               {{ Form::label('email', 'Email:', ['id' => 'emailLabel']) }}
                {{ Form::email('email', '', ['id' => 'email']) }}
            </div>		   
            <div class="loginAttr" id="passwordBox">
-               {{ Form::label('password', 'Password:') }}
+               {{ Form::label('password', 'Password:', ['id' => 'passwordLabel']) }}
                {{ Form::password('password', '', ['id' => 'password']) }}
            </div>	
 
+            <div id="errorMsg"></div>
+            
+            {{ Form::submit('Login',  ['id' => 'submitButton']) }} 
+            {{ Form::button('Cancel', ['id' => 'lightBoxCloseBtn']) }}
 
-            <div class="loginAttr" id="submit"> 
-                {{ Form::submit('Login') }} 
-            </div>
+            
         </div>
 
 	{{ Form::close() }}

@@ -14,6 +14,7 @@ $(document).ready(function(){
         
         if(!isAuthed) { 
                 $.get('/login', function(data) {
+                    
                     myLightBox.width("300px").height("300px");
                     myLightBox.show(data);                
                 });

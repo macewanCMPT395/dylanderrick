@@ -16,9 +16,11 @@ class UsersController extends \BaseController {
 
 
       public function show ($username) {
-        $user = $this->user->whereUsername($username)->first();//select * from users where username = USERNAME limit 1
-
-        return View::make('users/show', ['user' => $user]);
+          if(!Auth::check() || Auth::user()->username != $username)
+              return Redirect::to('/');
+          
+          $user = $this->user->whereUsername($username)->first();
+          return View::make('users/show', ['user' => $user]);
       }
 
       public function create () {
@@ -37,21 +39,18 @@ class UsersController extends \BaseController {
                     'errors' => $this->user->messages
                 );
              
-    	     	return Response::json($response);  
-                    
-                    //Redirect::back()->withInput()->withErrors($this->user->messages);
+    	     	return Response::json($response);      
+                //Redirect::back()->withInput()->withErrors($this->user->messages);
 	     }
 
-	     /*encrypt user password*/
-	     //$this->user->password = Hash::make($this->user->password);
-	     $this->user->save();
 
+	     $this->user->save();
+          
           #Redirect::route('users.index');
           $response = array(
               'status' => 0,
               'redirect' => 'users'
           );
-          
 	     return Response::json($response);
       }
 
