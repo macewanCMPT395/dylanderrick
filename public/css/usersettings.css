@@ -1,0 +1,29 @@
+#uname {
+
+	visibility: hidden;
+
+}
+
+#dummypass {
+
+	display: inline;
+
+}
+
+#upass {
+
+	visibility: hidden;
+
+}
+
+#editmode {
+
+	display: inline;
+
+}
+
+#editsubmit {
+
+	visibility: hidden;
+
+}
