@@ -5,10 +5,9 @@ body, html {
 .titleBlock {
     background-color: blue;
     color: white;
-    width: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 200px;
+    width: 1024px;
+    margin: auto;
+    height: 150px;
 }
 
 .titleBlock #name {
@@ -23,23 +22,35 @@ body, html {
 }
 
 
-.titleBlock #loginBlock {
+.titleBlock .loginBlock {
     text-align: right;
     display: inline-block;
-    margin-left: auto;
-    margin-right: 0px;
-    padding: 1%;
-    border: 1px solid white;
     position: relative;
+    width: 100%;
+    right: 2%;
 }
 
-.titleBlock #logoutButton {
-    display: none;   
+.loginBlock a {
+    display: inline;
+    color: white;
+    text-decoration: none;
+    padding-left: 1%;
 }
+
+.loginBlock a:hover {
+    color: red;   
+}
+
 
 .aboutTextBlock {
     background-color: #EEEEEE;   
-    width: 100%;
+    width: 1024px;
     height: 100%;
+    margin-left: auto;
+    margin-right: auto;
     
+    font-family: monospace;
+    white-space: pre;
+
+    overflow-x: hidden;
 }

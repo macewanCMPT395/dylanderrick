@@ -47,7 +47,6 @@
 	   {{ Form::close() }}
         </div>
 
-
         <div class="registerSuccess">
             <p>Registration success, please login on the main page.</p>
 
