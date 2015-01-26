@@ -63,10 +63,50 @@ class UsersController extends \BaseController {
 
 
 
-      public function update ($user) {
-      
+	public function update (/*$username*/) {
 
-      }
+		$user = Auth::user();
+//$this->user->whereUsername(Auth::user()->username)->first();
+
+		$newpass = Input::get('passchange');
+		$confirmpass = Input::get('passchangeconf');
+		$moduname = Input::get('namechange');
+
+		if($newpass != '')
+		{
+			if($newpass != $confirmpass)
+			{
+
+				return Redirect::back()->withErrors(['password'=>'Mismatched Passwords']);
+
+			}
+
+			echo $user;
+
+			$user->password = $newpass;
+
+		}
+
+		if($moduname == '')
+		{
+			$moduname = (Auth::user()->username);
+		}
+
+		$user->username = $moduname;
+
+		if(!$uses->isValid())
+		{
+
+			return Redirect::back()->withErrors($user->$messages);
+
+		}
+
+		$user->save();
+
+		return Redirect::route('users.edit', $user->username);
+
+	}
+
 
       
 }

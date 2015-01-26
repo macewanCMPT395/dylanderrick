@@ -9,8 +9,9 @@
 @section('content')
 	<h1> Hello, {{ $user->username }} </h2>
 
-	{{ Form::open(array( 'route' => 'users.edit',
-		'id' => 'form-usersettings'
+	{{ Form::open(array( 'route' => 'users.update',
+		'id' => 'form-usersettings',
+		'method' => 'PUT'
 		))
 	}}
 
@@ -28,23 +29,24 @@
 	<div>
 		{{ Form::label('passwordlabel', 'Password: ') }}
 		{{ Form::label('passworddummy', '**********', array( 'id' => 'dummypass')) }}
+		{{ Form::button('Change Password', array( 'id' => 'passbtn')) }}
 
-		<span id="upass">
-			{{ Form::label('oldpasslabel', 'Old: ') }}
-			{{ Form::password('oldpass') }}
+		<div id="upass">
 
 			{{ Form::label('newpasslabel', 'New: ') }}
-			{{ Form::password('passchange') }}
+			{{ Form::password('passchange', '', ['id' => 'npass']) }}
 
 			{{ Form::label('confpasslabel', 'Confirm: ') }}
-			{{ Form::password('passchangeconf') }}
+			{{ Form::password('passchangeconf', '', ['id' => 'ncpass']) }}
 
-			<div id="passwdErr"></div>
-
-		</span>
+		</div>
 
 	</div>
 	<div> {{ Form::submit('Edit Username and Password', array( 'id' => 'editbtn' )) }} </div>
+
+	
+	<div id="passwdErr">{{ $errors->first('password') }}</div>
+
 
 	{{ Form::close() }}
 

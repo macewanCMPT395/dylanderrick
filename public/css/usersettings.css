@@ -1,6 +1,6 @@
-#uname {
+#uname, #upass, #passbtn {
 
-	visibility: hidden;
+	display: none;
 
 }
 
@@ -10,20 +10,4 @@
 
 }
 
-#upass {
 
-	visibility: hidden;
-
-}
-
-#editmode {
-
-	display: inline;
-
-}
-
-#editsubmit {
-
-	visibility: hidden;
-
-}
