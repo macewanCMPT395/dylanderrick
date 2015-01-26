@@ -2,44 +2,55 @@
 
 
 @section('header')
+    {{ HTML::style('css/registerBox.css') }}
     {{ HTML::script('js/register.js') }}
 
 @section('content')
 
 	<h1>Create New User!!!</h2>
 
-	{{ Form::open(array( 'route' => 'users.store',
-                    'id' => 'form-register'
-        )) 
-    }}
+        <div class="registerBox">
+	   {{ Form::open([ 'route' => 'users.store',
+                            'id' => 'form-register']
+            )}}
 
+         
 	   <div>
 		{{ Form::label('username', 'Username: ') }}
 	   	{{ Form::text('username') }}
-        <div id="usernameErrMsg"></div>  
            
 	   </div>
 
+            <div>
+		{{ Form::label('email', 'Email: ') }}
+		{{ Form::email('email') }}
+	   </div>
+            
 	   <div>
 		{{ Form::label('pass1', 'Password: ') }}
 	   	{{ Form::password('pass1') }}
-        <div id="passwordErrMsg"></div>  
 	   </div>
 
-	   <div>
-		{{ Form::label('email', 'Email: ') }}
-		{{ Form::email('email') }}
-        <div id="emailErrMsg"></div> 
-	   </div>
+
 
 	   <div>
 		{{ Form::label('pass2', 'Confirm Password: ') }}
 		{{ Form::password('pass2') }}
 	   </div>
 
+    
+            <div id="registerErrorMsg"></div>
+
 	   <div> {{ Form::submit('Create User') }}</div>
+            <div> {{Form::button('Cancel',['id' => 'lightBoxCloseBtn']) }}</div>
+
+	   {{ Form::close() }}
+        </div>
 
 
-	{{ Form::close() }}
+        <div class="registerSuccess">
+            <p>Registration success, please login on the main page.</p>
 
+            {{Form::button('ok', ['id' => 'lightBoxCloseBtn'])}}
+        </div>
 @stop
