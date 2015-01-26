@@ -5,7 +5,7 @@ $(document).ready(function() {
             pass2 = $('input[name="pass2"').val();
         
         if(pass1 == '' || pass2 == '' || pass1 != pass2) {
-            $('#passwordErrMsg').text("Passwords do not match");
+            $('#registerErrorMsg').text("Passwords do not match");
             return false;
         }
         
@@ -21,18 +21,26 @@ $(document).ready(function() {
 
             function(resp) {
                 if(resp.status){
-                    if(resp.errors.username)
-                        $('#usernameErrMsg').text(resp.errors.username)
-
-                    if(resp.errors.password)
-                        $('#passwordErrMsg').text(resp.errors.password)
-
-                    if(resp.errors.email)
-                        $('emailErrMsg').text(resp.errors.password)
-
-
+                    $('#registerErrorMsg').empty();
+                    
+                    if(resp.errors.username){
+                        $('<p>').text('*' + resp.errors.username).appendTo('#registerErrorMsg')
+                            .attr('id', 'registerErrorStr');
+                    }
+                    if(resp.errors.password){
+                        $('<p>').text('*' + resp.errors.password).appendTo('#registerErrorMsg')
+                                .attr('id', 'registerErrorStr');
+                    }
+                    if(resp.errors.email) {
+                        $('<p>').text('*' + resp.errors.email).appendTo('#registerErrorMsg')
+                                .attr('id', 'registerErrorStr');
+                    } 
                 } else {
-                    window.location.href = resp.redirect;
+		    
+		    $('.registerBox').empty();
+                    $('.registerSuccess').show();
+		    
+		    
                 }
             },
             'json'

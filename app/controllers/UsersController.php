@@ -34,7 +34,6 @@ class UsersController extends \BaseController {
                     'status' => 1,
                     'errors' => $this->user->messages
                 );
-             
     	     	return Response::json($response);      
                 //Redirect::back()->withInput()->withErrors($this->user->messages);
 	     }
@@ -44,8 +43,7 @@ class UsersController extends \BaseController {
           
           #Redirect::route('users.index');
           $response = array(
-              'status' => 0,
-              'redirect' => 'users'
+              'status' => 0
           );
 	     return Response::json($response);
       }
