@@ -25,9 +25,3 @@ Route::resource('sessions', 'SessionsController');
 
 Route::resource('users', 'UsersController');
 
-
-Route::get('settings', function() {
-
-
-	return 'User Settings';
-})->before('auth');

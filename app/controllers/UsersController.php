@@ -16,11 +16,7 @@ class UsersController extends \BaseController {
 
 
       public function show ($username) {
-          if(!Auth::check() || Auth::user()->username != $username)
-              return Redirect::to('/');
           
-          $user = $this->user->whereUsername($username)->first();
-          return View::make('users/show', ['user' => $user]);
       }
 
       public function create () {
@@ -55,8 +51,13 @@ class UsersController extends \BaseController {
       }
 
 
-      public function edit ($user) {
+      public function edit ($username) {
 
+	if(!Auth::check() || Auth::user()->username != $username)
+		return Redirect::to('/');
+
+	$user = $this->user->whereUsername($username)->first();
+	return View::make('users/edit', ['user' => $user]);
 
       }
 

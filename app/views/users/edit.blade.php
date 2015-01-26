@@ -9,7 +9,7 @@
 @section('content')
 	<h1> Hello, {{ $user->username }} </h2>
 
-	{{ Form::open(array( 'route' => 'users.update',
+	{{ Form::open(array( 'route' => 'users.edit',
 		'id' => 'form-usersettings'
 		))
 	}}
