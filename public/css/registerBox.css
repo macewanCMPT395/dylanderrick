@@ -1,0 +1,13 @@
+#registerErrorMsg {
+    color: red;
+}
+
+#registerErrorStr {
+    padding: 0;
+    margin: 0;
+}
+
+
+.registerSuccess {
+    display: none;
+}

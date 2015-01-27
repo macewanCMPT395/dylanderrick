@@ -36,26 +36,25 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             $this->attributes['password'] = Hash::make($pass);
         }
 
+    
+        private function validate($ruleSet) {
+                $validation = Validator::make($this->attributes, $ruleSet);
+                if($validation->passes()) return true;
+
+                $this->messages = $validation->messages();
+                return false;            
+        }
+    
+    
 	public function isValid() {
-        $validation = Validator::make($this->attributes, static::$rules);
-        if($validation->passes()) return true;
-
-		$this->messages = $validation->messages();
-		return false;
-
+                return $this->validate(static::$rules);
 	}
 
 	public function isUpdateValid() {
-
 		$updaterule = static::$rules;
 		$updaterule['username'].=','.$this->id;
 		$updaterule['email'].=','.$this->id;
-		$validation = Validator::make($this->attributes, $updaterule);
-		if($validation->passes()) return true;
-
-		$this->messages = $validation->messages();
-		return false;
-
+                return $this->validate($updaterule);
 	}
 
 }
