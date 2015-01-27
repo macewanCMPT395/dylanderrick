@@ -92,10 +92,10 @@ class UsersController extends \BaseController {
 
 		$user->username = $moduname;
 
-		if(!$uses->isValid())
+		if(!$user->isUpdateValid())
 		{
 
-			return Redirect::back()->withErrors($user->$messages);
+			return Redirect::back()->withErrors($user->messages);
 
 		}
 
