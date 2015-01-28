@@ -1,33 +1,21 @@
 @extends('layout/default')
 
+
 @section('header')
-    {{ HTML::script('js/home.js') }}
+    {{ HTML::script('js/home.js'); }}
     {{ HTML::style('css/home.css'); }}
 
-    {{ HTML::script('js/lightbox.js') }}
+    {{ HTML::script('js/lightbox.js'); }}
     {{ HTML::style('css/lightbox.css'); }}
 
+     {{ HTML::style('css/titleBanner.css'); }}
 @stop
 
 
 @section('content')
-    @extends('layout/titleblock')
+    @include('homeBanner')
 
-    @section('pageTitle')
-        Sumsang
-    @stop
 
-    @section('loggedInMenu')
-        <a id="settingsButton" href="{{URL::route('users.edit', Auth::user()->username)}}">
-            User Settings
-        </a>
-        <a id="logoutButton" href="/logout">Logout</a>
-    @stop
-
-    @section('loggedOutMenu')
-        <a id="loginButton" href="/login">Login</a>
-        <a id="registerButton" href="/users/create">Regster</a>
-    @stop
 
 
     <div class="aboutTextBlock">

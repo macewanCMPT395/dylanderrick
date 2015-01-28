@@ -39,7 +39,6 @@ class UsersController extends \BaseController {
 
 	     $this->user->save();
           
-          #Redirect::route('users.index');
           $response = array(
               'status' => 0
           );
@@ -50,7 +49,7 @@ class UsersController extends \BaseController {
       public function edit ($username) {
 
 	if(!Auth::check() || Auth::user()->username != $username)
-		return Redirect::to('/');
+		return Redirect::route('home');
 
 	$user = $this->user->whereUsername($username)->first();
 	return View::make('users/edit', ['user' => $user]);
