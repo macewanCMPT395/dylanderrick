@@ -5,9 +5,30 @@
 	{{ HTML::script('js/lightbox.js') }}
 	{{ HTML::script('js/usersettings.js') }}
 
+     {{ HTML::style('css/home.css'); }}
+
 @stop
 
 @section('content')
+     @extends('layout/titleblock')
+    @section('pageTitle')
+        User Settings
+    @stop
+
+    @section('loggedInMenu')
+        <a id="settingsButton" href="{{URL::route('users.edit', Auth::user()->username)}}">
+            Home
+        </a>
+        <a id="logoutButton" href="/logout">Logout</a>
+    @stop
+
+    @section('loggedOutMenu')
+        <a id="loginButton" href="/login">Login</a>
+        <a id="registerButton" href="/users/create">Regster</a>
+    @stop
+
+
+
 	<h1> Hello, {{ $user->username }} </h2>
 
 	{{ Form::open(array( 'route' => 'users.update',

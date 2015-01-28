@@ -1,4 +1,5 @@
 @extends('layout/default')
+
 @section('header')
     {{ HTML::script('js/home.js') }}
     {{ HTML::style('css/home.css'); }}
@@ -10,22 +11,24 @@
 
 
 @section('content')
-    <div class="titleBlock">
-        <h1 id="name">Sumsang</h1>
-        
-        <div class="loginBlock">
-            @if(Auth::check())
-                <a id="settingsButton" href="{{URL::route('users.edit', Auth::user()->username)}}">
-                    User Settings
-                </a>
-                <a id="logoutButton" href="/logout">Logout</a>
-            @else
-                <a id="loginButton" href="/login">Login</a>
-                <a id="registerButton" href="/users/create">Regster</a>
-            @endif
-        </div>
-        
-    </div>
+    @extends('layout/titleblock')
+
+    @section('pageTitle')
+        Sumsang
+    @stop
+
+    @section('loggedInMenu')
+        <a id="settingsButton" href="{{URL::route('users.edit', Auth::user()->username)}}">
+            User Settings
+        </a>
+        <a id="logoutButton" href="/logout">Logout</a>
+    @stop
+
+    @section('loggedOutMenu')
+        <a id="loginButton" href="/login">Login</a>
+        <a id="registerButton" href="/users/create">Regster</a>
+    @stop
+
 
     <div class="aboutTextBlock">
         
