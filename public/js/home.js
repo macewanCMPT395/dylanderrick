@@ -1,7 +1,7 @@
 $(document).ready(function(){
     var myLightBox = LightBox.init();
     
-    $(".titleBlock .loginBlock #loginButton").click(function(e) {
+    $(".titleBlock .menuBlock #loginButton").click(function(e) {
         e.preventDefault();     
         $.get('/login', function(data) {
 
@@ -10,7 +10,7 @@ $(document).ready(function(){
         });      
     });
     
-    $(".titleBlock .loginBlock #registerButton").click(function(e) {
+    $(".titleBlock .menuBlock #registerButton").click(function(e) {
         e.preventDefault();
         $.get('/users/create', function(data) {
             myLightBox.width("400px").height("400px");
