@@ -1,8 +1,9 @@
 $(document).ready(function() {
-    $('#form-register').on('submit', function() {
+    $('#form-register').on('submit', function(e) {
+        e.preventDefault();
 
-        var pass1 = $('input[name="pass1"').val(),
-            pass2 = $('input[name="pass2"').val();
+        var pass1 = $('#pass1').val(),
+            pass2 = $('#pass2').val();
         
         if(pass1 == '' || pass2 == '' || pass1 != pass2) {
             $('#registerErrorMsg').text("Passwords do not match");
@@ -14,9 +15,9 @@ $(document).ready(function() {
             $(this).prop('action'),
             {
                 "_token": $( this ).find( 'input[name=_token]' ).val(),
-                "username": $('input[name="username"').val(),
-                "password": $('input[name="pass1"').val(),
-                "email" : $('input[name="email"').val()
+                "username": $('#username').val(),
+                "password": pass1,
+                "email" : $('#email').val()
             },
 
             function(resp) {

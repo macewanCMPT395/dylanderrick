@@ -25,7 +25,6 @@ class UsersController extends \BaseController {
 
 
       public function store () {
-          if(!Request::ajax()) return Redirect::route('/');
           
 	     $input = Input::all();
       	 if (!$this->user->fill($input)->isValid()) {
@@ -35,7 +34,6 @@ class UsersController extends \BaseController {
                     'errors' => $this->user->messages
                 );
     	     	return Response::json($response);      
-                //Redirect::back()->withInput()->withErrors($this->user->messages);
 	     }
 
 
