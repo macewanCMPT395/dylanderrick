@@ -61,10 +61,9 @@ class UsersController extends \BaseController {
 
 
 
-	public function update (/*$username*/) {
+	public function update () {
 
 		$user = Auth::user();
-//$this->user->whereUsername(Auth::user()->username)->first();
 
 		$newpass = Input::get('passchange');
 		$confirmpass = Input::get('passchangeconf');
@@ -105,6 +104,13 @@ class UsersController extends \BaseController {
 
 	}
 
+	public function destroy () {
+		
+		$user = User::find(Auth::user()->id);
+		Auth::logout();
+		if($user->delete()) return Redirect::route('home');		
+
+	}
 
       
 }

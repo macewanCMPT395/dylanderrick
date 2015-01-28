@@ -1,10 +1,10 @@
-#uname, #upass, #passbtn {
+#uname, #upass, #passbtn, #delconf, #delcancelbtn {
 
 	display: none;
 
 }
 
-#dummypass {
+#dummypass, #delbtn {
 
 	display: inline;
 
