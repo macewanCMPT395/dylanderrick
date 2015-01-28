@@ -53,4 +53,13 @@ body, html {
     white-space: pre;
 
     overflow-x: hidden;
+        
+}
+
+.textBlock {
+    font-size: 150%;
+    word-wrap:break-word;
+    
+    padding-left: 5%;
+    padding-right: 5%;
 }
