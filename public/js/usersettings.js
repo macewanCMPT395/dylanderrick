@@ -1,5 +1,4 @@
-$(document).ready(function() {
-
+$(document).ready(function() {    
 	var	editmode = false,
 		passedit = false;
 
@@ -43,23 +42,15 @@ $(document).ready(function() {
 	});
 
 
+    
+    
+        var confirmBox = LightBox.init();
+        var confirmBoxHTML = $('<div></div>')
+                            .load(window.location.pathname + ' #deletePopup .popupBox');
+    
 	$('#delbtn').click(function(e) {
-
-		$('#delbtn').hide();
-		$('#delcancelbtn').show();
-		$('#delconf').show();
-		
-		
-
-	});
-
-
-	$('#delcancelbtn').click(function(e) {
-
-		$('#delcancelbtn').hide();
-		$('#delconf').hide();
-		$('#delbtn').show();
-
+		confirmBox.width('600px').height('300px');
+                confirmBox.show(confirmBoxHTML.html());
 	});
 
 });

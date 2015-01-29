@@ -1,9 +1,12 @@
 @extends('layout/default')
 
 @section('header')
+        {{ HTML::script('js/lightbox.js') }}
+        {{ HTML::style('css/lightbox.css'); }}
+        {{ HTML::style('css/popupbox.css'); }}
+
+        {{ HTML::script('js/usersettings.js') }}
 	{{ HTML::style('css/usersettings.css'); }}
-	{{ HTML::script('js/lightbox.js') }}
-	{{ HTML::script('js/usersettings.js') }}
 
         {{ HTML::style('css/titleBanner.css'); }}
 @stop
@@ -51,34 +54,14 @@
 
 	
 	<div id="passwdErr">{{ $errors->first('password') }}</div>
-
-
-	{{ Form::close() }}
-
-
-
-	{{ Form::open(array( 'route' => 'users.destroy',
-		'method' => 'DELETE'
-		))
-	}}
-
-
-	<div>
-		{{ Form::button('Delete Account', array( 'id' => 'delbtn' )) }}
-		{{ Form::button('Cancel Deletion', array( 'id' => 'delcancelbtn' )) }}
-	</div>
-
-	<div id="delconf">
-
-
-		{{ Form::label('delconflabel',
-		'Are you sure you wish to delete your account? Once deleted, there is no way to restore your data. Continue?' 
-		) }}
-
-
-		{{ Form::submit( 'Confirm Deletion') }}
-	</div>
+        {{ Form::button('Delete Account', array( 'id' => 'delbtn' )) }}
 
 	{{ Form::close() }}
+
+
+
+        <div id="deletePopup">
+            @include('users/deleteUserPopup')
+        </div>
 
 @stop
