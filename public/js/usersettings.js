@@ -49,7 +49,7 @@ $(document).ready(function() {
                             .load(' #deletePopup .popupBox');
     
 	$('#delbtn').click(function(e) {
-		confirmBox.width('600px').height('300px');
+		confirmBox.width('600px').height('200px');
                 confirmBox.show(confirmBoxHTML.html());
 	});
 

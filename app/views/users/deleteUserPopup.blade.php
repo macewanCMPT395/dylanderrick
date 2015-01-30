@@ -5,13 +5,14 @@
 @stop
 
 @section('popupContent')
+	{{ HTML::style('css/deleteUserPopup.css'); }}
     {{ Form::open(array( 'route' => 'users.destroy',
             'id' => 'form-userdeletion',
             'method' => 'DELETE'
             ))
     }}
 
-    <p> 
+    <p class="delMessage"> 
         Are you sure you wish to delete your account? Once deleted
         there is no way to restore your data.
     </p>

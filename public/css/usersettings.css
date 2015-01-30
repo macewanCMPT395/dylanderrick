@@ -1,6 +1,8 @@
 #uname, #upass, #passbtn, #deletePopup {
 
 	display: none;
+	margin: 0;
+	padding: 0;
 
 }
 
