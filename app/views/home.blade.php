@@ -24,7 +24,7 @@
         <a id="logoutButton" href="/logout">Logout</a>
     @else
         <a id="loginButton" href="/login">Login</a>
-        <a id="registerButton" href="/users/create">Regster</a>
+        <a id="registerButton" href="/users/create">Regsiter</a>
     @endif
 
 @stop
