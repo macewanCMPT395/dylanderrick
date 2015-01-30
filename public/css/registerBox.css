@@ -1,5 +1,45 @@
+#form-register {
+
+	width: 400px;
+	height: 400px;
+	text-align: center;
+
+}
+
+.registerBox {
+
+	padding-top: 5%;
+
+}
+
+#userLbl, #emailLbl, #pass1Lbl, #pass2Lbl, #username, #email, 
+#pass1, #pass2 {
+
+	display: block;
+	text-align:left;
+	margin-left: 4%;
+
+}
+
+#username, #email, #pass1, #pass2 {
+
+	width: 90%;
+	margin-bottom: 5%;
+
+}
+
 #registerErrorMsg {
+
+    display: block;
+    text-align: center;
+    width: 90%;
+    height: 40px;
     color: red;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 #registerErrorStr {
@@ -10,4 +50,10 @@
 
 .registerSuccess {
     display: none;
+}
+
+.registrationBtns {
+
+	display: inline-block;
+
 }

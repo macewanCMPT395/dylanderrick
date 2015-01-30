@@ -12,33 +12,32 @@
 
 
        <div>
-            {{ Form::label('username', 'Username: ') }}
+            {{ Form::label('username', 'Username: ', ['id' => 'userLbl']) }}
             {{ Form::text('username') }}
 
        </div>
 
         <div>
-            {{ Form::label('email', 'Email: ') }}
+            {{ Form::label('email', 'Email: ', ['id' => 'emailLbl']) }}
             {{ Form::email('email') }}
        </div>
 
        <div>
-            {{ Form::label('pass1', 'Password: ') }}
+            {{ Form::label('pass1', 'Password: ', ['id' => 'pass1Lbl']) }}
             {{ Form::password('pass1') }}
        </div>
 
 
 
        <div>
-            {{ Form::label('pass2', 'Confirm Password: ') }}
+            {{ Form::label('pass2', 'Confirm Password: ', ['id' => 'pass2Lbl']) }}
             {{ Form::password('pass2') }}
        </div>
 
 
         <div id="registerErrorMsg"></div>
 
-       <div> {{ Form::submit('Create User') }}</div>
-        <div> {{Form::button('Cancel',['id' => 'lightBoxCloseBtn']) }}</div>
+       <div class="registrationBtns"> {{ Form::submit('Create User') }} {{Form::button('Cancel',['id' => 'lightBoxCloseBtn']) }}</div>
 
        {{ Form::close() }}
     </div>
