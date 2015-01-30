@@ -5,6 +5,7 @@
 @stop
 
 @section('popupContent')
+    <div class="loginBox">
 	{{ Form::open(['route' => 'sessions.store',
                     'id' => 'form-login'
         ])}}
@@ -25,4 +26,5 @@
 
 
 	{{ Form::close() }}
+    </div>
 @stop
