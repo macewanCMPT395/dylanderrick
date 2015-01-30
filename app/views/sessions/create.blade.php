@@ -1,4 +1,4 @@
-@extends('layout/default')
+@extends('layout/htmlStruct')
 
 @section('header')
     {{ HTML::script('js/login.js') }}

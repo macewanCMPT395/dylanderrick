@@ -7,13 +7,22 @@
 
         {{ HTML::script('js/usersettings.js') }}
 	{{ HTML::style('css/usersettings.css'); }}
-
-        {{ HTML::style('css/titleBanner.css'); }}
 @stop
 
-@section('content')
-        @include('users/userBanner')
 
+@section('pageTitle')
+    User Settings
+@stop
+
+@section('interface')
+        <a id="settingsButton" href="{{URL::route('home')}}">
+            Home
+        </a>
+        <a id="logoutButton" href="/logout">Logout</a>
+@stop
+
+
+@section('content')
 
 	<h1> Hello, {{ $user->username }} </h2>
 

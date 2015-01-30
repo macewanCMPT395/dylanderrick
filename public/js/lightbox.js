@@ -25,7 +25,7 @@ var LightBox = {
             $(this._lightBox).attr('id', 'lightBox').hide();
          
             this._content = document.createElement('div');
-            $(this._content).attr('class', 'content');
+            $(this._content).attr('class', 'lightBoxContent');
             $(this._content).appendTo(this._lightBox);
     
             var that = this;
@@ -47,13 +47,13 @@ var LightBox = {
     },
         
     clickOut: function(e, cb) {
-        var box = $(this._lightBox).find('.content');
+        var box = $(this._lightBox).find('.lightBoxContent');
         if(!box.is(e.target) && box.has(e.target).length==0)
             cb(box);
     },
     
     close: function() {
-        $(this._lightBox).find('.content').empty();
+        $(this._lightBox).find('.lightBoxContent').empty();
         $(this._lightBox).hide();
     },
     

@@ -8,17 +8,30 @@
     {{ HTML::script('js/lightbox.js'); }}
     {{ HTML::style('css/lightbox.css'); }}
 
-     {{ HTML::style('css/titleBanner.css'); }}
+@stop
+
+
+@section('pageTitle')
+    Sumsang
+@stop
+
+@section('interface')
+
+    @if(Auth::check())
+        <a id="settingsButton" href="{{URL::route('users.edit', Auth::user()->username)}}">
+            User Settings
+        </a>
+        <a id="logoutButton" href="/logout">Logout</a>
+    @else
+        <a id="loginButton" href="/login">Login</a>
+        <a id="registerButton" href="/users/create">Regster</a>
+    @endif
+
 @stop
 
 
 @section('content')
-    @include('homeBanner')
 
-
-
-
-    <div class="aboutTextBlock">
         
         <div class="textBlock">
             Here at Sumsang Electronics, we specialize in violating patents to create hardware that is visually indifferent from our main competitors. This means you, the consumer, can enjoy owning a high quality looking device for the absolute lowest costs anywhere world wide. These devices range from laptops, smart phones, tablets, computers, cameras, televisions, fridges, ovens and more. Not only do we partake in the consumer sphere, we also produce military vehicles, weapons, and devices to crush any infidels, terrorists, or the Japanese from threatening your freedom.
@@ -30,7 +43,7 @@
             
             By creating an account here with Sumsang, you get the once in a life time opportunity to recieve sales pitches for future products that are to be newly released, and you get to keep any personal information you may have on our cloud backup solution. Never again will you lose your data with our cloud service, not only do we keep backups of your data, but so does the federal government; a proper redundant backup solution to meet your backup needs! 
         </div>
-    </div>
+
 
 
 
