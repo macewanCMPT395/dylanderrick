@@ -45,8 +45,8 @@ $(document).ready(function() {
     
     
         var confirmBox = LightBox.init();
-        var confirmBoxHTML = $('<div></div>')
-                            .load(window.location.pathname + ' #deletePopup .popupBox');
+        var confirmBoxHTML =$('<div></div>')
+                            .load(' #deletePopup .popupBox');
     
 	$('#delbtn').click(function(e) {
 		confirmBox.width('600px').height('300px');
