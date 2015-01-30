@@ -11,7 +11,6 @@
 	</head>
 
 	<body>
-            
             <div class="defaultLayoutTitle">
                 <h1 id="defaultLayoutName">
                     @yield('pageTitle')
@@ -22,11 +21,9 @@
                 </div>
 
             </div>
-
+            
             <div class="defaultLayoutContent">   
-
               @yield('content')
-
             </div> 
             
 	    <div class="defaultLayoutFooter">

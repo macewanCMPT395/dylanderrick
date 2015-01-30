@@ -12,11 +12,11 @@
             
        <div class="loginAttr" id="emailBox">
            {{ Form::label('email', 'Email:', ['id' => 'emailLabel']) }}
-           {{ Form::email('email', '', ['id' => 'email']) }}
+           {{ Form::email('email') }}
        </div>		   
        <div class="loginAttr" id="passwordBox">
            {{ Form::label('password', 'Password:', ['id' => 'passwordLabel']) }}
-           {{ Form::password('password', '', ['id' => 'password']) }}
+           {{ Form::password('password') }}
        </div>	
 
         <div id="errorMsg"></div>

@@ -29,10 +29,7 @@
 
 @stop
 
-
 @section('content')
-
-        
         <div class="textBlock">
             Here at Sumsang Electronics, we specialize in violating patents to create hardware that is visually indifferent from our main competitors. This means you, the consumer, can enjoy owning a high quality looking device for the absolute lowest costs anywhere world wide. These devices range from laptops, smart phones, tablets, computers, cameras, televisions, fridges, ovens and more. Not only do we partake in the consumer sphere, we also produce military vehicles, weapons, and devices to crush any infidels, terrorists, or the Japanese from threatening your freedom.
         
