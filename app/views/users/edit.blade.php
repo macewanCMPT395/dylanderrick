@@ -23,54 +23,53 @@
 
 
 @section('content')
+	<div class="userSettingsDiv">
+		<p id="userGreeting"> Hello, {{ $user->username }}!</p>
 
-	<h1> Hello, {{ $user->username }} </h2>
+		{{ Form::open(array( 'route' => 'users.update',
+			'id' => 'form-usersettings',
+			'method' => 'PUT'
+			))
+		}}
 
-	{{ Form::open(array( 'route' => 'users.update',
-		'id' => 'form-usersettings',
-		'method' => 'PUT'
-		))
-	}}
+		<div class="usernameDiv">
+			{{ Form::label('screenamelabel', 'Username: ') }}
+			{{ Form::label('screenname', $user->username) }}
+			<span id="uname">{{ Form::text('namechange', $user->username) }}</span>
+		</div>
+		<div class="emailDiv">
+			{{ Form::label('emaillabel', 'Email: ') }}
+			{{ Form::label('email', $user->email) }}
+		</div>
+		<div class="passwordDiv">
+			{{ Form::label('passwordlabel', 'Password: ') }}
+			{{ Form::label('passworddummy', '**********', array( 'id' => 'dummypass')) }}
+			{{ Form::button('Change Password', array( 'id' => 'passbtn')) }}
 
-	<div>
-		{{ Form::label('screenamelabel', 'Username: ') }}
-		{{ Form::label('screenname', $user->username) }}
-		<span id="uname">{{ Form::text('namechange') }}</span>
-	</div>
+			<div id="upass">
 
-	<div>
-		{{ Form::label('emaillabel', 'Email: ') }}
-		{{ Form::label('email', $user->email) }}
-	</div>
+				{{ Form::label('newpasslabel', 'New: ') }}
+				{{ Form::password('passchange', '', ['id' => 'npass']) }}
 
-	<div>
-		{{ Form::label('passwordlabel', 'Password: ') }}
-		{{ Form::label('passworddummy', '**********', array( 'id' => 'dummypass')) }}
-		{{ Form::button('Change Password', array( 'id' => 'passbtn')) }}
+				{{ Form::label('confpasslabel', 'Confirm: ') }}
+				{{ Form::password('passchangeconf', '', ['id' => 'ncpass']) }}
 
-		<div id="upass">
+			</div>
 
-			{{ Form::label('newpasslabel', 'New: ') }}
-			{{ Form::password('passchange', '', ['id' => 'npass']) }}
+		</div>
+		<div id="passwdErr">{{ $errors->first('password') }}</div>
+		<div>
+			{{ Form::submit('Edit Username and Password', array( 'id' => 'editbtn' )) }}
+			{{ Form::button('Delete Account', array( 'id' => 'delbtn' )) }}
 
-			{{ Form::label('confpasslabel', 'Confirm: ') }}
-			{{ Form::password('passchangeconf', '', ['id' => 'ncpass']) }}
+			{{ Form::close() }}
 
 		</div>
 
+
+	        <div id="deletePopup">
+	            @include('users/deleteUserPopup')
+	        </div>
 	</div>
-	<div> {{ Form::submit('Edit Username and Password', array( 'id' => 'editbtn' )) }} </div>
-
-	
-	<div id="passwdErr">{{ $errors->first('password') }}</div>
-        {{ Form::button('Delete Account', array( 'id' => 'delbtn' )) }}
-
-	{{ Form::close() }}
-
-
-
-        <div id="deletePopup">
-            @include('users/deleteUserPopup')
-        </div>
 
 @stop
