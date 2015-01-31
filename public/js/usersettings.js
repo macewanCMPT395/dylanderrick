@@ -1,7 +1,32 @@
 $(document).ready(function() { 
         var changeMsg = ["No changes to save.", "There are changes to be saved."];
         var nameChanged = false;
+        var passChanged = false;
+
+        var updateLabelColors = function() {
+            if(nameChanged) $('label[for=namechange]').css('color', 'green');
+            else $('label[for=namechange]').css('color', '');
+            
+            
+            if(passChanged) {
+                $('label[for=newPassword]').css('color', 'green');
+                $('label[for=confirmPassword]').css('color', 'green');
+            } else {
+                $('label[for=newPassword]').css('color', '');
+                $('label[for=confirmPassword]').css('color', '');    
+            }
+        };
     
+        
+    
+        var updateMessage = function() {
+            if(passChanged == -1) $('#changeNotice').empty();
+            else if(passChanged || nameChanged) $('#changeNotice').text(changeMsg[1]);
+            else $('#changeNotice').text(changeMsg[0]);
+            
+            updateLabelColors();
+        }
+        
         var submitButton = {
             enable: function() {
                 $('input[type=submit]').removeAttr('disabled');
@@ -15,28 +40,33 @@ $(document).ready(function() {
             var pass1 = $('#newPassword').val(),
                 pass2 = $('#confirmPassword').val();
 
-            
             if(pass1 == '' && pass2 == '') {
-                if(nameChanged == false){
-                    $('#changeNotice').text(changeMsg[0]);
-                    $('#passwdErr').empty();
-                    submitButton.disable();
-                }
-            
+                $('#passwdErr').empty();
+                return 0;
             } else if(pass1 != pass2) {
                 $('#passwdErr').text("Passwords do not match");
-                submitButton.disable();
-                $('#changeNotice').empty();
-                //return false;
+                return -1;
             } else {
-                submitButton.enable();
                 $('#passwdErr').empty();
-                $('#changeNotice').text(changeMsg[1]);
+                return 1;
             }         
         };
     
+        var updateSubmitButton = function() {
+            passChanged = checkPasswords();
+          if(passChanged || nameChanged) {
+              if(passChanged >= 0) submitButton.enable();
+              else if(passChanged) submitButton.disable();
+              else submitButton.enable();
+          } else {
+              submitButton.disable();
+          }
+            
+            updateMessage();
+        };
+
     
-    
+
         var originalUserName = $('#namechange').val();
         submitButton.disable();
     
@@ -44,20 +74,19 @@ $(document).ready(function() {
     
         $('#namechange').on('change keyup paste', function(e) {
             if($('#namechange').val() != originalUserName) {
-                submitButton.enable();
-                $('#changeNotice').text(changeMsg[1]);
+                nameChanged = true;
             } else {
-                $('#changeNotice').text(changeMsg[0]);
-                submitButton.disable();
+                nameChanged = false;
             }
+            updateSubmitButton();
         });
     
         $('#newPassword').on('change keyup paste', function(e) {
-            checkPasswords();
+            updateSubmitButton();
         });
     
         $('#confirmPassword').on('change keyup paste', function(e) {
-            checkPasswords();
+            updateSubmitButton();
         });
     
     

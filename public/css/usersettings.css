@@ -38,4 +38,7 @@ label[for=passwordlabel], label[for=userInfo] {
 	color: red;
 }
 
+#changeNotice {
+    color: green;
+}
 
