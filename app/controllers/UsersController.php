@@ -62,8 +62,8 @@ class UsersController extends \BaseController {
 
 		$user = Auth::user();
 
-		$newpass = Input::get('passchange');
-		$confirmpass = Input::get('passchangeconf');
+		$newpass = Input::get('newPassword');
+		$confirmpass = Input::get('confirmPassword');
 		$moduname = Input::get('namechange');
 
 		if($newpass != '')
