@@ -11,14 +11,3 @@ How to run:
 			php artisan serve --host 0.0.0.0
 
 		to access this page outside the virtual machine
-
-
-Left To Do:
-	-user registration page:
-		-make pretty
-
-
-	-user settings page:
-		-maybe other stuff
-		-make pretty
-
