@@ -31,35 +31,41 @@
 			'method' => 'PUT'
 			))
 		}}
+            
+                <div class="userInfoBox">
+                    {{Form::label('userInfo', 'User Information') }}
+                    <div class="emailDiv">
+                            {{ Form::label('email', 'Email: ') }}
+                            {{ Form::label('email', $user->email) }}
+                    </div>
 
-		<div class="usernameDiv">
-			{{ Form::label('screenamelabel', 'Username: ') }}
-			{{ Form::label('screenname', $user->username) }}
-			<span id="uname">{{ Form::text('namechange', $user->username) }}</span>
-		</div>
-		<div class="emailDiv">
-			{{ Form::label('emaillabel', 'Email: ') }}
-			{{ Form::label('email', $user->email) }}
-		</div>
-		<div class="passwordDiv">
-			{{ Form::label('passwordlabel', 'Password: ') }}
-			{{ Form::label('passworddummy', '**********', array( 'id' => 'dummypass')) }}
-			{{ Form::button('Change Password', array( 'id' => 'passbtn')) }}
+                    <div class="usernameDiv">
+                            {{ Form::label('namechange', 'Username: ') }}
+                            {{Form::text('namechange', $user->username) }}
+                    </div>
+                </div>
+    
+                <div class="passwordChangeBox">
+                    {{ Form::label('passwordlabel', 'Change Password', ['id'=>'changePassLabel']) }}
 
-			<div id="upass">
+                    <div class="newPasswordField">
+                        {{ Form::label('newPassword', 'New: ') }}
+                        {{ Form::password('newPassword') }}
+                    </div>
 
-				{{ Form::label('newpasslabel', 'New: ') }}
-				{{ Form::password('passchange', '', ['id' => 'npass']) }}
-
-				{{ Form::label('confpasslabel', 'Confirm: ') }}
-				{{ Form::password('passchangeconf', '', ['id' => 'ncpass']) }}
-
-			</div>
-
-		</div>
-		<div id="passwdErr">{{ $errors->first('password') }}</div>
-		<div>
-			{{ Form::submit('Edit Username and Password', array( 'id' => 'editbtn' )) }}
+                    <div class="confirmPasswordField">
+                        {{ Form::label('confirmPassword', 'Confirm: ') }}
+                        {{ Form::password('confirmPassword') }}
+                    </div>
+                </div>
+		
+		<div class="submitChanges">
+                        <div id="passwdErr">
+                            {{ $errors->first('password') }}
+                            {{ $errors->first('username') }}
+                        </div>
+                        <div id="changeNotice"></div>
+			{{ Form::submit('Save Changes', array( 'id' => 'editbtn' )) }}
 			{{ Form::button('Delete Account', array( 'id' => 'delbtn' )) }}
 
 			{{ Form::close() }}

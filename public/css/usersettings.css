@@ -1,57 +1,41 @@
 .defaultLayoutContent {
-
 	white-space: normal;
-
+        height: 100%;
 }
 
 .userSettingsDiv {
-
-	display: block;
 	font-size: 18px;
-	margin-left:20%;
-	margin-right:20%;
-
 }
 
 #userGreeting {
-
+        text-align: center;
 	font-size: 32px;
 	font-weight: bold;
-
 }
 
-.usernameDiv, .emailDiv, .passwordDiv {
 
-	padding-bottom: 4%;
-
+label {
+    display: inline-block;
+    width: 15%;
 }
 
-#uname, #upass, #passbtn, #deletePopup {
+label[for=passwordlabel], label[for=userInfo] {
+    color: blue;
+     width: 100%;
+}
 
+.userInfoBox, .passwordChangeBox, .submitChanges {
+    margin-left: 10%;
+    padding-bottom: 3%;
+}
+
+
+#deletePopup {
 	display: none;
-
-}
-
-#dummypass, #delbtn {
-
-	display: inline;
-
 }
 
 #passwdErr {
-
 	color: red;
-
 }
 
-#editbtn {
 
-	margin-top: 5%;
-
-}
-
-#delbtn {
-
-	margin-bottom: 5%;
-
-}
